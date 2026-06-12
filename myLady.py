@@ -61,7 +61,6 @@ st.markdown("""
 ### Você deixa tudo mais bonito:
 Às vezes, a vida nos presenteia de maneira que não entendemos. 
 Cada detalhe, cada momento compartilhado com você é uma melodia suave.
-**Obrigado por ser a trilha sonora perfeita da minha vida.**
 """)
 
 # --- Lógica do Botão ---
@@ -79,6 +78,8 @@ if st.session_state.clicado:
         
     st.success("Minha Amada Princesa!")
     st.success("Para sempre vou te amar.")
+    st.success("**Obrigado por ser a trilha sonora perfeita da minha vida.**")
+    
 
 # Para o contador atualizar sem recarregar manualmente, usamos o rerun
 time.sleep(1)
