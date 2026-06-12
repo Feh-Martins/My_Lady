@@ -53,7 +53,7 @@ segundos = agora.second
 
 st.markdown(f"""
 ### Já estamos juntos há:
-# {dias} dias, {horas}h, {minutos}m e {segundos}s de conexão.
+# {dias} dias, {horas}h, {minutos}m e {segundos}s que iniciamos nosso amor.
 """)
 
 
