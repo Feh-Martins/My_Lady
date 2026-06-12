@@ -6,6 +6,9 @@ from datetime import datetime
 # Configuração da página
 st.set_page_config(page_title="Para você", page_icon="❤️")
 
+st.write("Hora atual:", agora)
+st.write("Hora inicial:", data_inicio)
+
 # --- Função de Fundo ---
 def get_base64_of_bin_file(bin_file):
     with open(bin_file, 'rb') as f:
