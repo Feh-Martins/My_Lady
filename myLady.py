@@ -1,6 +1,6 @@
 import streamlit as st
 import base64
-from datetime import date
+from datetime import datetime
 
 # Configuração da página
 st.set_page_config(page_title="Para você", page_icon="❤️")
@@ -33,15 +33,21 @@ def set_bg_hack(main_bg):
 set_bg_hack('foto.jpg') 
 
 
-# --- Cálculo de Dias ---
-def calcular_dias(data_inicial):
-    hoje = date.today()
-    delta = hoje - data_inicial
-    return delta.days
+# --- Cálculo Preciso (Dias, Horas, Minutos) ---
+def calcular_tempo_juntos(data_inicial):
+    agora = datetime.now()
+    delta = agora - data_inicial
+    
+    dias = delta.days
+    segundos_totais = delta.seconds
+    horas = segundos_totais // 3600
+    minutos = (segundos_totais % 3600) // 60
+    
+    return dias, horas, minutos
 
-data_inicio = date(2025, 9, 15)
-dias_juntos = calcular_dias(data_inicio)
-
+# Data de início (15/09/2025)
+data_inicio = datetime(2025, 9, 15, 0, 0, 0)
+dias, horas, minutos = calcular_tempo_juntos(data_inicio)
 
 # --- Lógica do Botão ---
 # Inicializa o estado do botão se ele ainda não existir
