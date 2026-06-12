@@ -49,16 +49,8 @@ while True:
     horas = segundos_totais // 3600
     minutos = (segundos_totais % 3600) // 60
     segundos = segundos_totais % 60
-
-# --- Lógica do Botão ---
-# Inicializa o estado do botão se ele ainda não existir
-if 'clicado' not in st.session_state:
-    st.session_state.clicado = False
-
-# Conteúdo Inicial
-st.title("❤️ Para meu amor, minha Lady")
-
-# Atualiza o conteúdo dentro do placeholder
+    
+    # Atualiza o conteúdo dentro do placeholder
     with placeholder.container():
         st.markdown(f"""
         ### Já estamos juntos há:
@@ -68,6 +60,13 @@ st.title("❤️ Para meu amor, minha Lady")
     # Pausa de 1 segundo antes de atualizar novamente
     time.sleep(1)
 
+# --- Lógica do Botão ---
+# Inicializa o estado do botão se ele ainda não existir
+if 'clicado' not in st.session_state:
+    st.session_state.clicado = False
+
+# Conteúdo Inicial
+st.title("❤️ Para meu amor, minha Lady")
 st.write("---")
 st.markdown("""
 ### Você deixa tudo mais bonito:
