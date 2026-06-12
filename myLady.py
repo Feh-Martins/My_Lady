@@ -29,7 +29,7 @@ def set_bg_hack(main_bg):
     '''
     st.markdown(page_bg_img, unsafe_allow_html=True)
 
-set_bg_hack('Screenshot_2026-06-12-10-55-46-915_com.google.android.apps.photos.jpg') 
+set_bg_hack('foto.jpg') 
 
 # --- Lógica do Botão ---
 # Inicializa o estado do botão se ele ainda não existir
