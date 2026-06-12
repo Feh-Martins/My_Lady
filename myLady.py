@@ -4,26 +4,23 @@ import time
 from datetime import datetime
 from datetime import datetime
 from zoneinfo import ZoneInfo
-
+from zoneinfo import ZoneInfo
 
 tz = ZoneInfo("America/Sao_Paulo")
 
-data_inicio = datetime(2025, 9, 15, 0, 0, 0, tzinfo=tz)
+# Hora atual
 agora = datetime.now(tz)
 
-delta = agora - data_inicio
+dias = agora.day
+horas = agora.hour
+minutos = agora.minute
+segundos = agora.second
 
-st.write("Hora atual:", agora)
-st.write("Hora inicial:", data_inicio)
-st.write("Delta:", delta)
-
-dias = delta.days
-horas = delta.seconds // 3600
-minutos = (delta.seconds % 3600) // 60
-segundos = delta.seconds % 60
-
-st.write(f"{dias} dias, {horas}h, {minutos}m e {segundos}s")
-
+# Mostra no mesmo formato
+placeholder.markdown(f"""
+### Já estamos juntos há:
+# {dias} dias, {horas}h, {minutos}m e {segundos}s de conexão.
+""")
 # --- Função de Fundo ---
 def get_base64_of_bin_file(bin_file):
     with open(bin_file, 'rb') as f:
