@@ -37,6 +37,9 @@ set_bg_hack('foto.jpg')
 st.title("❤️ Para meu amor, minha Lady")
 st.write("---")
 
+# Espaço reservado para o contador
+placeholder = st.empty()
+
 data_inicio = datetime(2025, 9, 15, 0, 0, 0)
 agora = datetime.now()
 
@@ -53,7 +56,6 @@ placeholder.markdown(f"""
 ### Já estamos juntos há:
 # {dias} dias, {horas}h, {minutos}m e {segundos}s de conexão.
 """)
-
 
 st.markdown("""
 ### Você deixa tudo mais bonito:
@@ -74,7 +76,7 @@ if st.session_state.clicado:
     with col2:
         st.video('0d630c90-92b0-4cc6-982e-fe9b8f36678c-VIDEO_HIGHLIGHT.mp4') 
         
-    st.success("Minha Princesa!")
+    st.success("Você aquece meu coração!")
     st.success("Para sempre vou te amar.")
 
 # Para o contador atualizar sem recarregar manualmente, usamos o rerun
