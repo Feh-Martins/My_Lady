@@ -6,6 +6,8 @@ from datetime import datetime
 from zoneinfo import ZoneInfo
 from zoneinfo import ZoneInfo
 
+
+placeholder = st.empty()
 tz = ZoneInfo("America/Sao_Paulo")
 
 # Hora atual
