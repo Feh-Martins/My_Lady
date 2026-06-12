@@ -76,7 +76,7 @@ if st.session_state.clicado:
     with col2:
         st.video('0d630c90-92b0-4cc6-982e-fe9b8f36678c-VIDEO_HIGHLIGHT.mp4') 
         
-    st.success("Você aquece meu coração!")
+    st.success("Minha Amada Princesa!")
     st.success("Para sempre vou te amar.")
 
 # Para o contador atualizar sem recarregar manualmente, usamos o rerun
