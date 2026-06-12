@@ -8,21 +8,26 @@ from zoneinfo import ZoneInfo
 
 
 placeholder = st.empty()
+
 tz = ZoneInfo("America/Sao_Paulo")
 
-# Hora atual
+data_inicio = datetime(2025, 9, 15, 0, 0, 0, tzinfo=tz)
 agora = datetime.now(tz)
 
-dias = agora.day
+# Dias desde 15/09/2025
+dias = (agora - data_inicio).days
+
+# Hora atual do relógio
 horas = agora.hour
 minutos = agora.minute
 segundos = agora.second
 
-# Mostra no mesmo formato
-placeholder.markdown(f"""
+st.markdown(f"""
 ### Já estamos juntos há:
 # {dias} dias, {horas}h, {minutos}m e {segundos}s de conexão.
 """)
+
+
 # --- Função de Fundo ---
 def get_base64_of_bin_file(bin_file):
     with open(bin_file, 'rb') as f:
