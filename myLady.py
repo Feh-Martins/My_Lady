@@ -17,6 +17,11 @@ agora = datetime.now(tz)
 st.write("Hora atual:", agora)
 st.write("Hora inicial:", data_inicio)
 
+st.write("Delta:", delta)
+st.write("Dias:", delta.days)
+st.write("Segundos:", delta.seconds)
+st.write("Horas calculadas:", delta.seconds // 3600)
+
 # --- Função de Fundo ---
 def get_base64_of_bin_file(bin_file):
     with open(bin_file, 'rb') as f:
