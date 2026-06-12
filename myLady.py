@@ -33,58 +33,54 @@ def set_bg_hack(main_bg):
 
 set_bg_hack('foto.jpg') 
 
-# Data de início (15/09/2025)
-data_inicio = datetime(2025, 9, 15, 0, 0, 0)
+# --- Conteúdo da Página ---
+st.title("❤️ Para meu amor, minha Lady")
+st.write("---")
 
 # Espaço reservado para o contador
 placeholder = st.empty()
 
-# Loop para atualizar o tempo a cada segundo
-while True:
-    agora = datetime.now()
-    delta = agora - data_inicio
-    
-    dias = delta.days
-    segundos_totais = delta.seconds
-    horas = segundos_totais // 3600
-    minutos = (segundos_totais % 3600) // 60
-    segundos = segundos_totais % 60
-    
-    # Atualiza o conteúdo dentro do placeholder
-    with placeholder.container():
-        st.markdown(f"""
-        ### Já estamos juntos há:
-        # {dias} dias, {horas}h, {minutos}m e {segundos}s de conexão.
-        """)
-    
-    # Pausa de 1 segundo antes de atualizar novamente
-    time.sleep(1)
+# Cálculo do tempo (FORA do loop infinito de travamento)
+data_inicio = datetime(2025, 9, 15, 0, 0, 0)
 
-# --- Lógica do Botão ---
-# Inicializa o estado do botão se ele ainda não existir
-if 'clicado' not in st.session_state:
-    st.session_state.clicado = False
+# O Streamlit já roda o script inteiro a cada interação, 
+# então não precisamos de 'while True' para o contador atualizar quando clicamos no botão.
+agora = datetime.now()
+delta = agora - data_inicio
+dias = delta.days
+segundos_totais = delta.seconds
+horas = segundos_totais // 3600
+minutos = (segundos_totais % 3600) // 60
+segundos = segundos_totais % 60
 
-# Conteúdo Inicial
-st.title("❤️ Para meu amor, minha Lady")
-st.write("---")
+# Mostra o contador
+placeholder.markdown(f"""
+### Já estamos juntos há:
+# {dias} dias, {horas}h, {minutos}m e {segundos}s de conexão.
+""")
+
 st.markdown("""
 ### Você deixa tudo mais bonito:
 Às vezes, a vida nos presenteia de maneira que não entendemos. 
 Cada detalhe, cada momento compartilhado com você é uma melodia suave.
 """)
 
-# Botão
+# --- Lógica do Botão ---
+if 'clicado' not in st.session_state:
+    st.session_state.clicado = False
+
 if st.button("Clique aqui"):
     st.session_state.clicado = True
 
-# O vídeo e as mensagens só aparecem se 'clicado' for True
 if st.session_state.clicado:
     st.markdown("<h1 style='text-align: left;'>❤️ ❤️ ❤️ </h1>", unsafe_allow_html=True)
-    
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
         st.video('0d630c90-92b0-4cc6-982e-fe9b8f36678c-VIDEO_HIGHLIGHT.mp4') 
         
     st.success("Você aquece meu coração!")
     st.success("Para sempre vou te amar.")
+
+# Para o contador atualizar sem recarregar manualmente, usamos o rerun
+time.sleep(1)
+st.rerun()
