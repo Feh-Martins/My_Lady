@@ -37,27 +37,23 @@ set_bg_hack('foto.jpg')
 st.title("❤️ Para meu amor, minha Lady")
 st.write("---")
 
-# Espaço reservado para o contador
-placeholder = st.empty()
-
-# Cálculo do tempo (FORA do loop infinito de travamento)
 data_inicio = datetime(2025, 9, 15, 0, 0, 0)
-
-# O Streamlit já roda o script inteiro a cada interação, 
-# então não precisamos de 'while True' para o contador atualizar quando clicamos no botão.
 agora = datetime.now()
-delta = agora - data_inicio
-dias = delta.days
-segundos_totais = delta.seconds
-horas = segundos_totais // 3600
-minutos = (segundos_totais % 3600) // 60
-segundos = segundos_totais % 60
 
-# Mostra o contador
+delta = agora - data_inicio
+
+total_segundos = int(delta.total_seconds())
+
+dias = total_segundos // 86400
+horas = (total_segundos % 86400) // 3600
+minutos = (total_segundos % 3600) // 60
+segundos = total_segundos % 60
+
 placeholder.markdown(f"""
 ### Já estamos juntos há:
 # {dias} dias, {horas}h, {minutos}m e {segundos}s de conexão.
 """)
+
 
 st.markdown("""
 ### Você deixa tudo mais bonito:
