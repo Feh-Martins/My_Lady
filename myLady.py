@@ -61,6 +61,7 @@ st.markdown("""
 ### Você deixa tudo mais bonito:
 Às vezes, a vida nos presenteia de maneira que não entendemos. 
 Cada detalhe, cada momento compartilhado com você é uma melodia suave.
+**Obrigado por ser a trilha sonora perfeita da minha vida.**
 """)
 
 # --- Lógica do Botão ---
