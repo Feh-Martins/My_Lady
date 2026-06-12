@@ -77,7 +77,7 @@ if st.session_state.clicado:
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
         # Defina aqui o nome exato do seu arquivo de vídeo
-        st.video('seu_video.mp4') 
+        st.video('0d630c90-92b0-4cc6-982e-fe9b8f36678c-VIDEO_HIGHLIGHT.mp4') 
         
     st.success("Você aquece meu coração!")
     st.success("Para sempre vou te amar.")
