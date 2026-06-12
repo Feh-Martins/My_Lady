@@ -50,6 +50,7 @@ if 'clicado' not in st.session_state:
 
 # Conteúdo Inicial
 st.title("❤️ Para meu amor, minha Lady")
+st.markdown(f"### Já estamos juntos há {dias_juntos} dias de pura conexão.")
 st.write("---")
 st.markdown("""
 ### Você deixa tudo mais bonito:
