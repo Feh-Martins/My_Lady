@@ -6,7 +6,7 @@ from datetime import datetime
 # Configuração da página
 st.set_page_config(page_title="Para você", page_icon="❤️")
 
-# --- Função de Fundo ---
+# --- Função para carregar a imagem de fundo ---
 def get_base64_of_bin_file(bin_file):
     with open(bin_file, 'rb') as f:
         data = f.read()
@@ -31,22 +31,21 @@ def set_bg_hack(main_bg):
     '''
     st.markdown(page_bg_img, unsafe_allow_html=True)
 
+# Defina aqui o nome exato do seu arquivo de imagem
 set_bg_hack('foto.jpg') 
 
 # --- Conteúdo da Página ---
 st.title("❤️ Para meu amor, minha Lady")
 st.write("---")
 
-# Espaço reservado para o contador
+# Espaço reservado para o contador em tempo real
 placeholder = st.empty()
 
-# Cálculo do tempo (FORA do loop infinito de travamento)
+# Cálculo do tempo (Data inicial 15/09/2025)
 data_inicio = datetime(2025, 9, 15, 0, 0, 0)
-
-# O Streamlit já roda o script inteiro a cada interação, 
-# então não precisamos de 'while True' para o contador atualizar quando clicamos no botão.
 agora = datetime.now()
 delta = agora - data_inicio
+
 dias = delta.days
 segundos_totais = delta.seconds
 horas = segundos_totais // 3600
@@ -74,13 +73,15 @@ if st.button("Clique aqui"):
 
 if st.session_state.clicado:
     st.markdown("<h1 style='text-align: left;'>❤️ ❤️ ❤️ </h1>", unsafe_allow_html=True)
+    
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
-        st.video('0d630c90-92b0-4cc6-982e-fe9b8f36678c-VIDEO_HIGHLIGHT.mp4') 
+        # Defina aqui o nome exato do seu arquivo de vídeo
+        st.video('seu_video.mp4') 
         
     st.success("Você aquece meu coração!")
     st.success("Para sempre vou te amar.")
 
-# Para o contador atualizar sem recarregar manualmente, usamos o rerun
+# Atualiza a página a cada 1 segundo para o contador de segundos rodar
 time.sleep(1)
 st.rerun()
