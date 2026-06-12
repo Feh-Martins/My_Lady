@@ -7,27 +7,6 @@ from zoneinfo import ZoneInfo
 from zoneinfo import ZoneInfo
 
 
-placeholder = st.empty()
-
-tz = ZoneInfo("America/Sao_Paulo")
-
-data_inicio = datetime(2025, 9, 15, 0, 0, 0, tzinfo=tz)
-agora = datetime.now(tz)
-
-# Dias desde 15/09/2025
-dias = (agora - data_inicio).days
-
-# Hora atual do relógio
-horas = agora.hour
-minutos = agora.minute
-segundos = agora.second
-
-st.markdown(f"""
-### Já estamos juntos há:
-# {dias} dias, {horas}h, {minutos}m e {segundos}s de conexão.
-""")
-
-
 # --- Função de Fundo ---
 def get_base64_of_bin_file(bin_file):
     with open(bin_file, 'rb') as f:
@@ -59,25 +38,24 @@ set_bg_hack('foto.jpg')
 st.title("❤️ Para meu amor, minha Lady")
 st.write("---")
 
-# Espaço reservado para o contador
 placeholder = st.empty()
+tz = ZoneInfo("America/Sao_Paulo")
+data_inicio = datetime(2025, 9, 15, 0, 0, 0, tzinfo=tz)
+agora = datetime.now(tz)
 
-data_inicio = datetime(2025, 9, 15, 0, 0, 0)
-agora = datetime.now()
+# Dias desde 15/09/2025
+dias = (agora - data_inicio).days
 
-delta = agora - data_inicio
+# Hora atual do relógio
+horas = agora.hour
+minutos = agora.minute
+segundos = agora.second
 
-total_segundos = int(delta.total_seconds())
-
-dias = total_segundos // 86400
-horas = (total_segundos % 86400) // 3600
-minutos = (total_segundos % 3600) // 60
-segundos = total_segundos % 60
-
-placeholder.markdown(f"""
+st.markdown(f"""
 ### Já estamos juntos há:
 # {dias} dias, {horas}h, {minutos}m e {segundos}s de conexão.
 """)
+
 
 st.markdown("""
 ### Você deixa tudo mais bonito:
