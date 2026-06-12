@@ -2,10 +2,18 @@ import streamlit as st
 import base64
 import time
 from datetime import datetime
+from datetime import datetime
+from zoneinfo import ZoneInfo
+
+
 
 # Configuração da página
 st.set_page_config(page_title="Para você", page_icon="❤️")
 
+tz = ZoneInfo("America/Sao_Paulo")
+
+data_inicio = datetime(2025, 9, 15, 0, 0, 0, tzinfo=tz)
+agora = datetime.now(tz)
 st.write("Hora atual:", agora)
 st.write("Hora inicial:", data_inicio)
 
