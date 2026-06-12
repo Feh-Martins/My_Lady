@@ -102,7 +102,7 @@ def contador():
 
     st.markdown(
         f"""
-### Já estamos juntos há
+### Iniciamos nosso amor e já estamos juntos há
 
 # {dias} dias, {horas_totais}h, {minutos}m e {segundos}s
 """
