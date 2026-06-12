@@ -6,21 +6,23 @@ from datetime import datetime
 from zoneinfo import ZoneInfo
 
 
-
-# Configuração da página
-st.set_page_config(page_title="Para você", page_icon="❤️")
-
 tz = ZoneInfo("America/Sao_Paulo")
 
 data_inicio = datetime(2025, 9, 15, 0, 0, 0, tzinfo=tz)
 agora = datetime.now(tz)
+
+delta = agora - data_inicio
+
 st.write("Hora atual:", agora)
 st.write("Hora inicial:", data_inicio)
-
 st.write("Delta:", delta)
-st.write("Dias:", delta.days)
-st.write("Segundos:", delta.seconds)
-st.write("Horas calculadas:", delta.seconds // 3600)
+
+dias = delta.days
+horas = delta.seconds // 3600
+minutos = (delta.seconds % 3600) // 60
+segundos = delta.seconds % 60
+
+st.write(f"{dias} dias, {horas}h, {minutos}m e {segundos}s")
 
 # --- Função de Fundo ---
 def get_base64_of_bin_file(bin_file):
