@@ -1,5 +1,6 @@
 import streamlit as st
 import base64
+from datetime import date
 
 # Configuração da página
 st.set_page_config(page_title="Para você", page_icon="❤️")
