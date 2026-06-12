@@ -51,7 +51,7 @@ if st.button("Clique aqui"):
 
 # O vídeo e as mensagens só aparecem se 'clicado' for True
 if st.session_state.clicado:
-    st.markdown("<h1 style='text-align: left;'>❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: left;'>❤️ ❤️ ❤️ </h1>", unsafe_allow_html=True)
     
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
