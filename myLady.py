@@ -1,5 +1,6 @@
 import streamlit as st
 import base64
+import time
 from datetime import datetime
 
 # Configuração da página
@@ -32,22 +33,22 @@ def set_bg_hack(main_bg):
 
 set_bg_hack('foto.jpg') 
 
+# Data de início (15/09/2025)
+data_inicio = datetime(2025, 9, 15, 0, 0, 0)
 
-# --- Cálculo Preciso (Dias, Horas, Minutos) ---
-def calcular_tempo_juntos(data_inicial):
+# Espaço reservado para o contador
+placeholder = st.empty()
+
+# Loop para atualizar o tempo a cada segundo
+while True:
     agora = datetime.now()
-    delta = agora - data_inicial
+    delta = agora - data_inicio
     
     dias = delta.days
     segundos_totais = delta.seconds
     horas = segundos_totais // 3600
     minutos = (segundos_totais % 3600) // 60
-    
-    return dias, horas, minutos
-
-# Data de início (15/09/2025)
-data_inicio = datetime(2025, 9, 15, 0, 0, 0)
-dias, horas, minutos = calcular_tempo_juntos(data_inicio)
+    segundos = segundos_totais % 60
 
 # --- Lógica do Botão ---
 # Inicializa o estado do botão se ele ainda não existir
@@ -56,10 +57,17 @@ if 'clicado' not in st.session_state:
 
 # Conteúdo Inicial
 st.title("❤️ Para meu amor, minha Lady")
-st.markdown(f"""
-### Já estamos juntos há:
-# {dias} dias, {horas} horas e {minutos} minutos.
-""")
+
+# Atualiza o conteúdo dentro do placeholder
+    with placeholder.container():
+        st.markdown(f"""
+        ### Já estamos juntos há:
+        # {dias} dias, {horas}h, {minutos}m e {segundos}s de conexão.
+        """)
+    
+    # Pausa de 1 segundo antes de atualizar novamente
+    time.sleep(1)
+
 st.write("---")
 st.markdown("""
 ### Você deixa tudo mais bonito:
