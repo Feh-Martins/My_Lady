@@ -31,6 +31,17 @@ def set_bg_hack(main_bg):
 
 set_bg_hack('foto.jpg') 
 
+
+# --- Cálculo de Dias ---
+def calcular_dias(data_inicial):
+    hoje = date.today()
+    delta = hoje - data_inicial
+    return delta.days
+
+data_inicio = date(2025, 9, 15)
+dias_juntos = calcular_dias(data_inicio)
+
+
 # --- Lógica do Botão ---
 # Inicializa o estado do botão se ele ainda não existir
 if 'clicado' not in st.session_state:
